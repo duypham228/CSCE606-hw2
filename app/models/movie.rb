@@ -6,4 +6,8 @@ class Movie < ActiveRecord::Base
         #  movies with those ratings
         # if ratings_list is nil, retrieve ALL movies
     end
+    
+    def self.all_ratings
+        all_ratings = ['G','PG','PG-13','R']
+    end
 end
