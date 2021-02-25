@@ -9,12 +9,23 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.all_ratings
     
+    # part 2: sorting
+    # we need variable sort_by
+    if params[:sort_by]
+      @sort_by = params[:sort_by]
+    else
+      @sort_by = ""
+    end
+    
     if params[:ratings]
       @ratings_to_show = params[:ratings].keys
     else
       @ratings_to_show = []
     end
-    @movies = Movie.with_ratings(@ratings_to_show)
+    @movies = Movie.with_ratings(@ratings_to_show, @sort_by)
+    
+   
+    
     
   end
 
