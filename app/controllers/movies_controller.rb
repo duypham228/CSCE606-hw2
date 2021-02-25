@@ -49,8 +49,8 @@ class MoviesController < ApplicationController
     end
     
     #update session
-    session[:ratings] = params[:ratings]
-    session[:sort_by] = params[:sort_by]
+    session[:ratings] = session[:ratings]
+    session[:sort_by] = session[:sort_by]
     @movies = Movie.with_ratings(@ratings_to_show_keys, @sort_by)
     
    
