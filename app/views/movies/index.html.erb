@@ -16,7 +16,7 @@
     <tr>
       <th>
       <% if @sort_by == "title" %>
-        <% :class => 'hilite' %>
+        <%= :class => 'hilite' %>
       <% end %>
       <%= link_to "Movie Title", movies_path(:sort_by => :title, :ratings => @ratings_to_show) %></th>
       <th>Rating</th>
