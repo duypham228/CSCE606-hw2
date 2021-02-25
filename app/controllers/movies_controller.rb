@@ -52,7 +52,9 @@ class MoviesController < ApplicationController
       end
     end
     
-    #update session
+    if !params[:ratings]
+      session[:ratings] = []
+    end
     
     
     @movies = Movie.with_ratings(@ratings_to_show_keys, @sort_by)
