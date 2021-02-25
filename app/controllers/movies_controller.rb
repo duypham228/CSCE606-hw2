@@ -9,6 +9,9 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.all_ratings
     
+    if params[:back_to_list]
+      session.clear
+    end
     # part 2: sorting
     # we need variable sort_by
     if params[:sort_by] # on same page
