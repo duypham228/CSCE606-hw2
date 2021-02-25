@@ -57,6 +57,11 @@ class MoviesController < ApplicationController
     #   session[:ratings] = {}
     # end
     
+    if params[:home] && !params[:ratings]
+      session[:ratings] = {}
+    end
+    
+    
     
     @movies = Movie.with_ratings(@ratings_to_show_keys, @sort_by)
     
