@@ -11,8 +11,8 @@
   <%= hidden_field_tag :sort_by , "#{@sort_by}" %>
   <%= submit_tag 'Refresh', id: 'ratings_submit', class: 'btn btn-primary' %>
 <% end %>
-<%if session[:ratings]%><%= session[:ratings]%><%end%>
-<%if session[:sort_by]%><%= session[:sort_by]%><%end%>
+<%if session[:ratings]%><%= "ratimg"%><%= session[:ratings]%><%end%>
+<%if session[:sort_by]%><%= "sort_by"%><%= session[:sort_by]%><%end%>
 <%= debug(params)%>
 <%#  Part 2: Start here... %>
 <table class="table table-striped col-md-12" id="movies">
