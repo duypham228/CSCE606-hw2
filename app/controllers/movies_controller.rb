@@ -12,9 +12,9 @@ class MoviesController < ApplicationController
     # part 2: sorting
     # we need variable sort_by
     if params[:sort_by]
-      @sort_by = params[:sort_by].keys
+      @sort_by = params[:sort_by]
     else
-      @sort_by = []
+      @sort_by = ""
     end
     
     if params[:ratings]
