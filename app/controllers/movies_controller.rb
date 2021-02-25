@@ -28,8 +28,8 @@ class MoviesController < ApplicationController
       if session[:sort_by]
         @sort_by = session[:sort_by]
       # nothing in session
-      else
-        @sort_by = ""
+      # else
+      #   @sort_by = ""
       end
     end
     
@@ -42,9 +42,9 @@ class MoviesController < ApplicationController
         @ratings_to_show_keys = session[:ratings].keys
         @ratings_to_show = session[:ratings]
       # nothing in session
-      else
-        @ratings_to_show_keys = []
-        @ratings_to_show = []
+      # else
+      #   @ratings_to_show_keys = []
+      #   @ratings_to_show = []
       end
     end
     
