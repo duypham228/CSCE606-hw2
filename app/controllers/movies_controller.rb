@@ -38,23 +38,24 @@ class MoviesController < ApplicationController
       @ratings_to_show_keys = params[:ratings].keys
       @ratings_to_show = params[:ratings]
       session[:ratings] = params[:ratings]
-    else # from different page
+    else # from different page or not checked
       # check whether there are state in session or not
       if session[:ratings] && !params[:home]
         @ratings_to_show_keys = session[:ratings].keys
         @ratings_to_show = session[:ratings]
         # session[:ratings] = [];
       # nothing in session, first time open the site
-        
+      elsif params[:home] && !params[:ratings]
+        session[:ratings] = {}
       else
         @ratings_to_show_keys = []
         @ratings_to_show = {}
       end
     end
     
-    if params[:home] && session[:ratings].empty? && !params[:ratings]
-      session[:ratings] = {}
-    end
+    # if params[:home] && session[:ratings].empty? && !params[:ratings]
+    #   session[:ratings] = {}
+    # end
     
     
     @movies = Movie.with_ratings(@ratings_to_show_keys, @sort_by)
