@@ -23,6 +23,7 @@ class MoviesController < ApplicationController
     # we need variable sort_by
     if params[:sort_by] # on same page
       @sort_by = params[:sort_by]
+      session[:sort_by] = params[:sort_by]
     else # from different page
       # check whether there are state in session or not
       if session[:sort_by]
@@ -36,6 +37,7 @@ class MoviesController < ApplicationController
     if params[:ratings] # on same page
       @ratings_to_show_keys = params[:ratings].keys
       @ratings_to_show = params[:ratings]
+      session[:ratings] = params[:ratings]
     else # from different page
       # check whether there are state in session or not
       if session[:ratings]
@@ -49,8 +51,8 @@ class MoviesController < ApplicationController
     end
     
     #update session
-    session[:ratings] = session[:ratings]
-    session[:sort_by] = session[:sort_by]
+    
+    
     @movies = Movie.with_ratings(@ratings_to_show_keys, @sort_by)
     
    
