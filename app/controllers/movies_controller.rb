@@ -7,23 +7,50 @@ class MoviesController < ApplicationController
   end
 
   def index
+    # check if there are saved state in session
+    if session[:ratings]
+      @sesstion_ratings = session[:ratings]
+    end
+    
+    
+    if session[:sort_by]
+      @session_sort_by = session[:sort_by]
+    else
+      @session_sort_by 
     @all_ratings = Movie.all_ratings
     
     # part 2: sorting
     # we need variable sort_by
-    if params[:sort_by]
+    if params[:sort_by] # on same page
       @sort_by = params[:sort_by]
-    else
-      @sort_by = ""
+    else # from different page
+      # check whether there are state in session or not
+      if session[:sort_by]
+        @sort_by = session[:sort_by]
+      # nothing in session
+      else
+        @sort_by = ""
+      end
     end
     
-    if params[:ratings]
+    if params[:ratings] # on same page
       @ratings_to_show_keys = params[:ratings].keys
       @ratings_to_show = params[:ratings]
-    else
-      @ratings_to_show_keys = []
-      @ratings_to_show = []
+    else # from different page
+      # check whether there are state in session or not
+      if session[:ratings]
+        @ratings_to_show_keys = session[:ratings].keys
+        @ratings_to_show = = session[:ratings]
+      # nothing in session
+      else
+        @ratings_to_show_keys = []
+        @ratings_to_show = []
+      end
     end
+    
+    #update session
+    session[:ratings] = params[:ratings]
+    session[:sort_by] = params[:sort_by]
     @movies = Movie.with_ratings(@ratings_to_show_keys, @sort_by)
     
    
