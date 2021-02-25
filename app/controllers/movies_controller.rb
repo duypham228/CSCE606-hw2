@@ -43,31 +43,19 @@ class MoviesController < ApplicationController
       if session[:ratings] && !params[:home]
         @ratings_to_show_keys = session[:ratings].keys
         @ratings_to_show = session[:ratings]
-        # session[:ratings] = [];
       # nothing in session, first time open the site
-      # elsif params[:home] && session[:ratings]
-      #   session[:ratings] = {}
       else
         @ratings_to_show_keys = []
         @ratings_to_show = {}
       end
     end
     
-    # if params[:home] && session[:ratings].empty? && !params[:ratings]
-    #   session[:ratings] = {}
-    # end
-    
+    # edge case
     if params[:home] && !params[:ratings]
       session[:ratings] = {}
     end
-    
-    
-    
+
     @movies = Movie.with_ratings(@ratings_to_show_keys, @sort_by)
-    
-   
-    
-    
   end
 
   def new
