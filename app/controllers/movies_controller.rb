@@ -7,16 +7,6 @@ class MoviesController < ApplicationController
   end
 
   def index
-    # check if there are saved state in session
-    # if session[:ratings]
-    #   @sesstion_ratings = session[:ratings]
-    # end
-    
-    
-    # if session[:sort_by]
-    #   @session_sort_by = session[:sort_by]
-    # else
-    #   @session_sort_by 
     @all_ratings = Movie.all_ratings
     
     # part 2: sorting
