@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
     @all_ratings = ['G','PG','PG-13','R']
     
     if params[:ratings]
-      @ratings_to_show = params[:ratings].key
+      @ratings_to_show = params[:ratings].keys
     else
       @ratings_to_show = []
     end
