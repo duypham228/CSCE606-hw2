@@ -43,8 +43,10 @@ class MoviesController < ApplicationController
       if session[:ratings] && !params[:home]
         @ratings_to_show_keys = session[:ratings].keys
         @ratings_to_show = session[:ratings]
-        session[:ratings] = [];
+        # session[:ratings] = [];
       # nothing in session, first time open the site
+      elsif !
+        
       else
         @ratings_to_show_keys = []
         @ratings_to_show = []
