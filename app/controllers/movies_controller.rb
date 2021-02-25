@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
     else
       @ratings_to_show = []
     end
-    @movies = Movie.all
+    @movies = Movie.with_ratings(@ratings_to_show)
     
   end
 
