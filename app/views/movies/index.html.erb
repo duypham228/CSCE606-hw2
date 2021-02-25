@@ -8,7 +8,7 @@
       <%= check_box_tag "ratings[#{rating}]", "1",  @ratings_to_show.include?(rating), class: 'form-check-input' %>
     </div>
   <% end %>
-  <%= submit_tag 'Refresh', id: 'ratings_submit', sort_by: "#{@sort_by}", class: 'btn btn-primary' %>
+  <%= submit_tag 'Refresh', id: 'ratings_submit', name: "hello[hello]", class: 'btn btn-primary' %>
 <% end %>
 <%= debug(params)%>
 <%#  Part 2: Start here... %>
