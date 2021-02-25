@@ -11,6 +11,7 @@
   <%= hidden_field_tag :sort_by , "#{@sort_by}" %>
   <%= submit_tag 'Refresh', id: 'ratings_submit', class: 'btn btn-primary' %>
 <% end %>
+<%= debug(session)%>
 <%#  Part 2: Start here... %>
 <table class="table table-striped col-md-12" id="movies">
   <thead>
