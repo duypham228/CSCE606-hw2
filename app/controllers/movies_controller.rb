@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
       session[:sort_by] = params[:sort_by]
     else # from different page
       # check whether there are state in session or not
-      if session[:sort_by]
+      if session[:sort_by] && !params[:home]
         @sort_by = session[:sort_by]
       # nothing in session, first time open the site
       else
@@ -40,7 +40,7 @@ class MoviesController < ApplicationController
       session[:ratings] = params[:ratings]
     else # from different page
       # check whether there are state in session or not
-      if session[:ratings]
+      if session[:ratings] && !params[:home]
         @ratings_to_show_keys = session[:ratings].keys
         @ratings_to_show = session[:ratings]
       # nothing in session, first time open the site
