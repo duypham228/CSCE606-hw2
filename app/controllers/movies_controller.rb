@@ -48,12 +48,12 @@ class MoviesController < ApplicationController
         
       else
         @ratings_to_show_keys = []
-        @ratings_to_show = []
+        @ratings_to_show = {}
       end
     end
     
     if !params[:ratings]
-      session[:ratings] = []
+      session[:ratings] = {}
     end
     
     
