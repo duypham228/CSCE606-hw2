@@ -15,10 +15,13 @@
   <thead>
     <tr>
       <th>
+      class = "
       <% if @sort_by == "title" %>
-        <%= :class => 'hilite' %>
+        <%= 'hilite'%>
       <% end %>
-      <%= link_to "Movie Title", movies_path(:sort_by => :title, :ratings => @ratings_to_show) %></th>
+      "
+      <%= link_to "Movie Title", movies_path(:sort_by => :title, :ratings => @ratings_to_show) %>
+      </th>
       <th>Rating</th>
       <th><%= link_to "Release Date", movies_path(:sort_by => :release_date, :ratings => @ratings_to_show) %></th>
       <th>More Info</th>
