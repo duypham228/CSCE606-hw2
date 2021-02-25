@@ -14,11 +14,7 @@
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <tr>
-      <th class = "
-      <% if @sort_by == "title" %>
-        <%= 'hilite'%>
-      <% end %>
-      ">
+      <th class="<% if @sort_by == "title" %><%= "hilite p-3 mb-2 bg-warning text-dark"%><% end %>">
       <%= link_to "Movie Title", movies_path(:sort_by => :title, :ratings => @ratings_to_show) %>
       </th>
       <th>Rating</th>
