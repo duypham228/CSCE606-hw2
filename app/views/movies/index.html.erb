@@ -8,7 +8,7 @@
       <%= check_box_tag "ratings[#{rating}]", "1",  @ratings_to_show.include?(rating), class: 'form-check-input' %>
     </div>
   <% end %>
-  <%= submit_tag 'Refresh', id: 'ratings_submit', class: 'btn btn-primary' %>
+  <%= link_to submit_tag ('Refresh', id: 'ratings_submit', class: 'btn btn-primary'), movies_path(:sort_by => @sort_by, :ratings => @ratings_to_show) %>
 <% end %>
 <%#  Part 2: Start here... %>
 <table class="table table-striped col-md-12" id="movies">
